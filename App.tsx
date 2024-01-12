@@ -1,6 +1,6 @@
 import React from 'react';
-import {NativeBaseProvider} from 'native-base';
 import Main from './src';
+import {NativeBaseProvider} from 'native-base';
 
 function App(): React.JSX.Element {
   return (

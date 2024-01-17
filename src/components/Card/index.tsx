@@ -1,6 +1,15 @@
 import React from 'react';
-import {Box, HStack, Image, Text, VStack} from 'native-base';
-import {StyleSheet, TouchableOpacity} from 'react-native';
+import {
+  AddIcon,
+  Box,
+  FavouriteIcon,
+  HStack,
+  Image,
+  Text,
+  VStack,
+} from 'native-base';
+import {StyleSheet} from 'react-native';
+import CircleButton from '../CircleButton';
 
 interface CardTypes {
   title: string;
@@ -16,7 +25,7 @@ export default function Card({title, description, price}: CardTypes) {
       background={'#ffff'}
       width="40"
       margin={'2'}
-      height="3/4"
+      height="5/6"
       padding="3">
       <Box
         background="amber.300"
@@ -34,18 +43,14 @@ export default function Card({title, description, price}: CardTypes) {
           position={'absolute'}
           style={styles.shadow}
           alignItems="center"
-          top={'2'}
+          top={'4'}
           right={'2'}
-          borderRadius={'full'}
-          height={9}
-          width={9}
-          backgroundColor={'#F26B6B'}
           justifyContent="center">
-          <TouchableOpacity>
-            <Text color="#ffff" fontWeight="black">
-              :3
-            </Text>
-          </TouchableOpacity>
+          <CircleButton
+            background="#F26B6B"
+            children={<FavouriteIcon style={styles.colorIcon} />}
+            onPress={() => console.log('favorite')}
+          />
         </Box>
       </Box>
       <VStack p={'2'}>
@@ -56,20 +61,11 @@ export default function Card({title, description, price}: CardTypes) {
       </VStack>
       <HStack px={'2'} justifyContent="space-between">
         <Text>${price}</Text>
-        <TouchableOpacity>
-          <Box
-            justifyContent="center"
-            alignItems="center"
-            background="#2A2D3F"
-            height={8}
-            width={8}
-            borderRadius={'full'}
-            bottom="2">
-            <Text color="#ffff" fontSize="lg">
-              +
-            </Text>
-          </Box>
-        </TouchableOpacity>
+        <CircleButton
+          onPress={() => console.log('Add')}
+          background="#2A2D3F"
+          children={<AddIcon style={styles.colorIcon} />}
+        />
       </HStack>
     </Box>
   );
@@ -86,5 +82,9 @@ const styles = StyleSheet.create({
     shadowRadius: 3.84,
 
     elevation: 5,
+  },
+
+  colorIcon: {
+    color: '#ffff',
   },
 });

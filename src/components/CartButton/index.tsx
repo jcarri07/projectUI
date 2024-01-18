@@ -3,9 +3,9 @@ import React from 'react';
 import {Box} from 'native-base';
 import CartIconSvg from '../../icons/Cart';
 
-export default function CartButton() {
+export default function CartButton({navigation}: any) {
   return (
-    <TouchableOpacity>
+    <TouchableOpacity onPress={() => navigation.navigate('Cart')}>
       <Box
         padding={'3'}
         width="12"

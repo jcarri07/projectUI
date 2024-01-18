@@ -48,7 +48,7 @@ export default function Main({navigation}: any) {
               shadow={'7'}
             />
           </Box>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => navigation.navigate('Cart')}>
             <Box
               padding={'3'}
               width="12"

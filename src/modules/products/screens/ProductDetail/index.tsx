@@ -1,59 +1,16 @@
 import React from 'react';
-import {
-  AddIcon,
-  ArrowBackIcon,
-  Box,
-  Button,
-  HStack,
-  Image,
-  Text,
-  VStack,
-} from 'native-base';
+import {AddIcon, Box, Button, HStack, Image, Text, VStack} from 'native-base';
 import FavouriteButton from '../../../../components/FavouriteButton';
-import CartButton from '../../../../components/CartButton';
-import {StyleSheet, TouchableOpacity} from 'react-native';
+import {StyleSheet} from 'react-native';
 import StarIconSvg from '../../../../icons/Star';
 import StarFillIconSvg from '../../../../icons/StarFill';
+import Header from '../../../../components/Header';
 
 export default function ProductDetail({navigation}: any) {
   return (
-    <Box flex={1}>
+    <Box flex={1} bg="#F5F6FA">
       <Box borderBottomLeftRadius={'50'} height={'50%'} shadow="7">
-        <HStack
-          paddingX="4"
-          width="full"
-          height="10"
-          position="absolute"
-          zIndex={1}
-          marginTop="10"
-          justifyContent="space-between"
-          alignItems="center">
-          <TouchableOpacity onPress={() => navigation.goBack()}>
-            <Box
-              backgroundColor="white"
-              width={10}
-              height={10}
-              opacity={0.5}
-              justifyContent="center"
-              alignItems="center"
-              borderRadius="full">
-              <ArrowBackIcon style={style.backgroundButton} />
-            </Box>
-          </TouchableOpacity>
-          <Text fontWeight="bold" color="gray.100" fontSize="lg">
-            Product
-          </Text>
-          <Box
-            backgroundColor="white"
-            width={10}
-            height={10}
-            opacity={0.5}
-            justifyContent="center"
-            alignItems="center"
-            borderRadius="full">
-            <CartButton />
-          </Box>
-        </HStack>
+        <Header navigation={navigation} />
         <Image
           src="https://i.pinimg.com/564x/91/af/7c/91af7c97b4efbe2f1959f42dc551a339.jpg"
           alt="image product"

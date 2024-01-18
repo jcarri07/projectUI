@@ -15,7 +15,7 @@ import CartIconSvg from './icons/Cart';
 import UserIconSvg from './icons/User';
 import {data} from './utils';
 
-export default function Main() {
+export default function Main({navigation}: any) {
   return (
     <Box flex={1} bg="#F5F6FA" alignItems="center" justifyContent="center">
       <HStack justifyContent="space-between" width={'5/6'} height="10">
@@ -35,13 +35,13 @@ export default function Main() {
         </TouchableOpacity>
       </HStack>
       <Box padding={4} width={'full'} height={'3/4'}>
-        <HStack>
+        <HStack alignItems="center">
           <Box padding="2" width={'5/6'}>
             <Input
               InputLeftElement={<SearchIcon left={2} size={6} />}
               borderRadius={'xl'}
               placeholderTextColor="#B9B9CE"
-              size="md"
+              size="lg"
               placeholder="Search"
               backgroundColor="#ffff"
               borderColor="white"
@@ -50,7 +50,6 @@ export default function Main() {
           </Box>
           <TouchableOpacity>
             <Box
-              marginTop={'2'}
               padding={'3'}
               width="12"
               height="12"
@@ -60,7 +59,9 @@ export default function Main() {
             </Box>
           </TouchableOpacity>
         </HStack>
-        <CustomTitle title="Explore" />
+        <Box paddingY="4">
+          <CustomTitle title="Explore" />
+        </Box>
         <HStack height={'72'}>
           <FlatList
             showsHorizontalScrollIndicator={false}
@@ -86,7 +87,7 @@ export default function Main() {
           paddingX={15}
           height={'2/6'}
           width={'full'}>
-          <HorizontalCard />
+          <HorizontalCard navigation={navigation} />
         </HStack>
       </Box>
     </Box>

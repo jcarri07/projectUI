@@ -2,7 +2,7 @@ import {ArrowForwardIcon, Box, HStack, Image, Text, VStack} from 'native-base';
 import React from 'react';
 import {StyleSheet, TouchableOpacity} from 'react-native';
 
-export default function HorizontalCard() {
+export default function HorizontalCard({navigation}: any) {
   return (
     <Box
       backgroundColor={'#ffff'}
@@ -38,7 +38,7 @@ export default function HorizontalCard() {
           justifyContent="flex-end"
           alignItems="flex-end"
           padding="2">
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => navigation.navigate('Details')}>
             <Box
               backgroundColor="#2A2D3F"
               height={8}

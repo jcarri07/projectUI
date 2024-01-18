@@ -41,7 +41,7 @@ export default function Card({title, description, price}: CardTypes) {
         />
         <Box
           position={'absolute'}
-          style={styles.shadow}
+          // style={styles.shadow}
           alignItems="center"
           top={'4'}
           right={'2'}

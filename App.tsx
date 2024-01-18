@@ -1,11 +1,31 @@
 import React from 'react';
 import Main from './src';
 import {NativeBaseProvider} from 'native-base';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import ProductDetail from './src/modules/products/screens/ProductDetail';
+import {NavigationContainer} from '@react-navigation/native';
+import Screen from './src/modules/products/screens/Main';
+
+const Stack = createNativeStackNavigator();
 
 function App(): React.JSX.Element {
   return (
     <NativeBaseProvider>
-      <Main />
+      <NavigationContainer>
+        <Stack.Navigator initialRouteName="Main">
+          <Stack.Screen
+            name="Main"
+            component={Main}
+            options={{headerShown: false}}
+          />
+          <Stack.Screen name="Home" component={Screen} />
+          <Stack.Screen
+            name="Details"
+            component={ProductDetail}
+            options={{headerShown: false}}
+          />
+        </Stack.Navigator>
+      </NavigationContainer>
     </NativeBaseProvider>
   );
 }

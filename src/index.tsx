@@ -24,7 +24,7 @@ export default function Main({navigation}: any) {
             <HamburgerIcon size={8} />
           </Box>
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => console.log('User')}>
+        <TouchableOpacity onPress={() => navigation.navigate('Profile')}>
           <Box
             width={'10'}
             height={'10'}

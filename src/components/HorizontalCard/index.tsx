@@ -1,8 +1,17 @@
 import {ArrowForwardIcon, Box, HStack, Image, Text, VStack} from 'native-base';
 import React from 'react';
 import {StyleSheet, TouchableOpacity} from 'react-native';
+import {HorizontalCardTypes} from './types';
 
-export default function HorizontalCard({navigation}: any) {
+export default function HorizontalCard(
+  {navigation}: any,
+  {
+    image = 'https://i.pinimg.com/564x/3a/00/2d/3a002db8afce64e58c9cdf7393f4a724.jpg',
+    productName = 'Vintange Chair',
+    description = 'Description',
+    price = 200.0,
+  }: HorizontalCardTypes,
+) {
   return (
     <Box
       backgroundColor={'#ffff'}
@@ -19,7 +28,7 @@ export default function HorizontalCard({navigation}: any) {
           alignItems="center">
           <Image
             borderRadius="2xl"
-            src="https://i.pinimg.com/564x/3a/00/2d/3a002db8afce64e58c9cdf7393f4a724.jpg"
+            src={image}
             height="4/5"
             width="3/5"
             alt="Image card"
@@ -27,10 +36,10 @@ export default function HorizontalCard({navigation}: any) {
         </HStack>
         <VStack justifyContent="center" width="2/5" height="20">
           <Text fontWeight="bold" color="#2A2D3F">
-            Vintange Chair
+            {productName}
           </Text>
-          <Text color="#B9B9CE">Description</Text>
-          <Text color="#2A2D3F">$200.00</Text>
+          <Text color="#B9B9CE">{description}</Text>
+          <Text color="#2A2D3F">${price}</Text>
         </VStack>
         <HStack
           width="1/4"
@@ -38,7 +47,8 @@ export default function HorizontalCard({navigation}: any) {
           justifyContent="flex-end"
           alignItems="flex-end"
           padding="2">
-          <TouchableOpacity onPress={() => navigation.navigate('Details')}>
+          <TouchableOpacity
+            onPress={() => navigation.navigate('Details', {itemId: '2'})}>
             <Box
               backgroundColor="#2A2D3F"
               height={8}

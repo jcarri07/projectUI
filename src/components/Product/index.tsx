@@ -28,7 +28,9 @@ export default function Product() {
       <VStack padding="4" space="6" width="60%" height="full">
         <Text fontWeight="bold">Minimalist Chair</Text>
         <HStack justifyContent="space-between" width="80%">
-          <Text color="red.400">$174.00</Text>
+          <Text color="red.400" fontWeight="bold">
+            $174.00
+          </Text>
           <AddButton />
         </HStack>
       </VStack>

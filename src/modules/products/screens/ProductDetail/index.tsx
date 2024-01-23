@@ -2,17 +2,34 @@ import React from 'react';
 import {AddIcon, Box, Button, HStack, Image, Text, VStack} from 'native-base';
 import FavouriteButton from '../../../../components/FavouriteButton';
 import {StyleSheet} from 'react-native';
-import StarIconSvg from '../../../../icons/Star';
-import StarFillIconSvg from '../../../../icons/StarFill';
 import Header from '../../../../components/Header';
+import {ProductTypes} from './types';
+import RateComponent from '../../../../components/RateComponent';
+import {useRoute} from '@react-navigation/native';
 
-export default function ProductDetail({navigation}: any) {
+interface DetailScreenParams {
+  itemId: string;
+}
+
+export default function ProductDetail(
+  {navigation}: any,
+  {
+    image = 'https://i.pinimg.com/564x/91/af/7c/91af7c97b4efbe2f1959f42dc551a339.jpg',
+    price = 87.0,
+    productName = 'Product',
+    description = 'Descripcion de un producto',
+    rate = 3,
+  }: ProductTypes,
+) {
+  const route = useRoute();
+  const {itemId} = route.params as DetailScreenParams;
+
   return (
     <Box flex={1} bg="#F5F6FA">
-      <Box borderBottomLeftRadius={'50'} height={'50%'} shadow="7">
+      <Box bg="#ffff" borderBottomLeftRadius={'50'} height={'50%'} shadow="7">
         <Header navigation={navigation} />
         <Image
-          src="https://i.pinimg.com/564x/91/af/7c/91af7c97b4efbe2f1959f42dc551a339.jpg"
+          src={image}
           alt="image product"
           height="full"
           borderBottomLeftRadius={'50'}
@@ -29,22 +46,11 @@ export default function ProductDetail({navigation}: any) {
         paddingX="4">
         <VStack>
           <Text fontWeight="black" fontSize="xl" color="red.400">
-            $87.00
+            ${price}
           </Text>
-          <Text fontWeight="semibold">Minimal Chair</Text>
+          <Text fontWeight="semibold">{productName}</Text>
         </VStack>
-        <HStack alignItems="flex-end" height="12" width="20">
-          <StarFillIconSvg />
-          <StarFillIconSvg />
-          <StarFillIconSvg />
-          <StarIconSvg />
-          <StarIconSvg />
-          <VStack left={'2'} top={'1'}>
-            <Text fontWeight="bold" fontSize={12}>
-              3.0
-            </Text>
-          </VStack>
-        </HStack>
+        <RateComponent rate={rate} />
       </HStack>
       <HStack paddingX={'4'} height="12" width="full" bottom={'12'}>
         <VStack space={1}>
@@ -75,8 +81,7 @@ export default function ProductDetail({navigation}: any) {
         <VStack>
           <Text>Description</Text>
           <Text fontSize="12" textAlign="justify" color="#B9B9CE">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis animi
-            architecto molestias, voluptatibus modi necessitatibus. Libero
+            {description}
           </Text>
         </VStack>
       </HStack>
@@ -89,9 +94,9 @@ export default function ProductDetail({navigation}: any) {
           width="48"
           height="16"
           backgroundColor="#2A2D3F"
-          onPress={() => console.log('Add to Cart')}>
+          onPress={() => console.log('id: ' + itemId)}>
           <HStack alignItems="center">
-            <AddIcon style={style.button} />
+            <AddIcon style={styles.button} />
             <Text color="white"> Add to Cart</Text>
           </HStack>
         </Button>
@@ -100,7 +105,7 @@ export default function ProductDetail({navigation}: any) {
   );
 }
 
-const style = StyleSheet.create({
+const styles = StyleSheet.create({
   backgroundButton: {
     color: 'black',
     height: 25,

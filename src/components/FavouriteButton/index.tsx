@@ -10,8 +10,7 @@ export default function FavouriteButton() {
         alignItems="flex-end"
         width="full"
         height="1/6"
-        paddingLeft="80"
-        shadow="7">
+        paddingLeft="80">
         <Box
           justifyContent="center"
           alignItems="center"
@@ -19,7 +18,8 @@ export default function FavouriteButton() {
           backgroundColor="white"
           height="12"
           width="12"
-          bottom={5}>
+          bottom={5}
+          shadow="7">
           <FavouriteIcon style={style.colorIcon} />
         </Box>
       </Box>

@@ -40,6 +40,7 @@ export default function CartDetails({navigation}: any) {
         onClose={() => setOpen(false)}
         safeAreaTop={true}>
         <Modal.Content
+          bgColor="white"
           height="64"
           borderRadius="30"
           maxWidth="350"
@@ -47,13 +48,17 @@ export default function CartDetails({navigation}: any) {
           <Modal.Body>
             <VStack paddingX="3" space={'2'} marginTop="10">
               <HStack justifyContent="space-between">
-                <Text fontWeight="light">Selected Items</Text>
+                <Text fontWeight="light" color="primary.900">
+                  Selected Items
+                </Text>
                 <Text fontWeight="bold" color="red.400">
                   $513.00
                 </Text>
               </HStack>
               <HStack paddingBottom="4" justifyContent="space-between">
-                <Text fontWeight="light">Shipping fee</Text>
+                <Text fontWeight="light" color="primary.900">
+                  Shipping fee
+                </Text>
                 <Text fontWeight="bold" color="red.400">
                   $30.00
                 </Text>
@@ -63,7 +68,7 @@ export default function CartDetails({navigation}: any) {
                 marginBottom="4"
                 marginTop="1"
                 justifyContent="space-between">
-                <Text fontSize="16" fontWeight="bold">
+                <Text fontSize="16" fontWeight="bold" color="primary.900">
                   Subtotal
                 </Text>
                 <Text fontSize="16" fontWeight="bold" color="red.400">

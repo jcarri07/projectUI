@@ -73,6 +73,7 @@ export default function Main({navigation}: any) {
                   title={item.title}
                   description={item.description}
                   price={item.price}
+                  srcImage={item.image}
                 />
               </Box>
             )}

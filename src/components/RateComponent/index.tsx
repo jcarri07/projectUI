@@ -22,7 +22,9 @@ export default function RateComponent({rate}: RateTypes) {
     <HStack alignItems="flex-end" height="12" width="20">
       <HStack justifyContent="center" alignItems="center">
         {stars}
-        <Text marginX="2">{rate}</Text>
+        <Text marginX="2" color="primary.900" fontWeight="bold">
+          {rate}
+        </Text>
       </HStack>
     </HStack>
   );

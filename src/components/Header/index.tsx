@@ -19,11 +19,11 @@ export default function Header({navigation}: any) {
           backgroundColor="white"
           width={10}
           height={10}
-          opacity={0.5}
+          opacity={0.8}
           justifyContent="center"
           alignItems="center"
           borderRadius="full">
-          <ArrowBackIcon />
+          <ArrowBackIcon color={'black'} size={'5'} />
         </Box>
       </TouchableOpacity>
       <Text fontWeight="bold" color="gray.300" fontSize="lg">
@@ -33,7 +33,7 @@ export default function Header({navigation}: any) {
         backgroundColor="white"
         width={10}
         height={10}
-        opacity={0.5}
+        opacity={0.8}
         justifyContent="center"
         alignItems="center"
         borderRadius="full">

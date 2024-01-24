@@ -1,8 +1,18 @@
 import React, {useState} from 'react';
-import {Avatar, Box, CheckCircleIcon, HStack, Text, VStack} from 'native-base';
+import {
+  Avatar,
+  Box,
+  Button,
+  CheckCircleIcon,
+  HStack,
+  Text,
+  VStack,
+} from 'native-base';
 import Header from '../../../components/Header';
 import {TouchableOpacity} from 'react-native';
 import TabButton from '../../../components/TabButton';
+import CardInfo from '../../../components/CardInfo';
+import CardTransactions from '../../../components/CardTransactions';
 
 const listOptions = [
   {
@@ -34,7 +44,7 @@ const listOptions = [
 export default function Profile({navigation}: any) {
   const [activeTab, setActiveTab] = useState('Profile');
 
-  const handleTabPress = tab => {
+  const handleTabPress = (tab: React.SetStateAction<string>) => {
     setActiveTab(tab);
   };
   return (
@@ -60,39 +70,66 @@ export default function Profile({navigation}: any) {
           onPress={() => handleTabPress('Statistics')}
         />
       </HStack>
-      <VStack height={'1/5'} />
-      <VStack alignItems="center" marginBottom="10">
-        <Avatar
-          size="2xl"
-          source={{
-            uri: 'https://i.pinimg.com/564x/b3/f8/a9/b3f8a9ffb414e67cc998f6a5ae244dcd.jpg',
-          }}
-        />
-        <VStack top="2" alignItems="center">
-          <Text fontWeight="bold" color="#1c1c1c">
-            Lionel Adres
-          </Text>
-          <Text color="gray.400">English Teacher</Text>
-        </VStack>
-      </VStack>
-      <VStack flex={1} />
-      <VStack
-        space="4"
-        paddingTop="10"
-        paddingX="10"
-        borderTopRadius="3xl"
-        bg="#2A2D3F"
-        w="full"
-        height="2/3">
-        {listOptions.map((item, index) => (
-          <TouchableOpacity key={index}>
-            <HStack justifyContent="space-between" alignItems="center">
-              <Text color="white">{item.name}</Text>
-              <CheckCircleIcon color="green.300" />
+      {activeTab === 'Profile' ? (
+        <>
+          <VStack height={'1/6'} />
+          <VStack alignItems="center" marginBottom="10">
+            <Avatar
+              size="2xl"
+              source={{
+                uri: 'https://i.pinimg.com/564x/b3/f8/a9/b3f8a9ffb414e67cc998f6a5ae244dcd.jpg',
+              }}
+            />
+            <VStack top="2" alignItems="center">
+              <Text fontWeight="bold" color="#1c1c1c">
+                Lionel Adres
+              </Text>
+              <Text color="gray.400">English Teacher</Text>
+            </VStack>
+          </VStack>
+          <VStack flex={1} />
+          <VStack
+            space="4"
+            paddingTop="10"
+            paddingX="10"
+            borderTopRadius="3xl"
+            bg="#2A2D3F"
+            w="full"
+            height="2/3">
+            {listOptions.map((item, index) => (
+              <TouchableOpacity key={index}>
+                <HStack justifyContent="space-between" alignItems="center">
+                  <Text color="white">{item.name}</Text>
+                  <CheckCircleIcon color="green.300" />
+                </HStack>
+              </TouchableOpacity>
+            ))}
+            <HStack
+              paddingTop="10"
+              w="full"
+              justifyContent="center"
+              alignItems="center">
+              <Button
+                w="full"
+                bg="primary.900"
+                color="white"
+                borderRadius="full"
+                borderColor="white"
+                borderWidth="1">
+                Update Info
+              </Button>
             </HStack>
-          </TouchableOpacity>
-        ))}
-      </VStack>
+          </VStack>
+        </>
+      ) : (
+        <>
+          <VStack height={'1/6'} />
+          <Box alignItems="center" w="full" h="full">
+            <CardInfo />
+            <CardTransactions />
+          </Box>
+        </>
+      )}
     </Box>
   );
 }

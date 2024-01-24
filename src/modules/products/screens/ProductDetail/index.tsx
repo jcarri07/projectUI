@@ -14,10 +14,10 @@ interface DetailScreenParams {
 export default function ProductDetail(
   {navigation}: any,
   {
-    image = 'https://i.pinimg.com/564x/91/af/7c/91af7c97b4efbe2f1959f42dc551a339.jpg',
+    image = 'https://i.pinimg.com/564x/9e/50/00/9e50009c3971bbbd14f53e0daf5b4a45.jpg',
     price = 87.0,
     productName = 'Product',
-    description = 'Descripcion de un producto',
+    description = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam harum exercitationem aspernatur consequuntur at id odio quaerat! Voluptatum sit consequatur accusantium odio fugit beatae, repudiandae temporibus corporis, minus quos blanditiis!',
     rate = 3,
   }: ProductTypes,
 ) {
@@ -48,13 +48,17 @@ export default function ProductDetail(
           <Text fontWeight="black" fontSize="xl" color="red.400">
             ${price}
           </Text>
-          <Text fontWeight="semibold">{productName}</Text>
+          <Text fontWeight="semibold" color="primary.900">
+            {productName}
+          </Text>
         </VStack>
         <RateComponent rate={rate} />
       </HStack>
-      <HStack paddingX={'4'} height="12" width="full" bottom={'12'}>
-        <VStack space={1}>
-          <Text fontSize="12">Color option</Text>
+      <HStack paddingX={'4'} height="12" width="full" bottom="16">
+        <HStack space={'2'}>
+          <Text fontSize="12" color="darkText">
+            Color option
+          </Text>
           <HStack space={2}>
             <Box
               height={5}
@@ -75,11 +79,12 @@ export default function ProductDetail(
               borderRadius="full"
             />
           </HStack>
-        </VStack>
+        </HStack>
       </HStack>
+      <VStack h={10} />
       <HStack position="absolute" paddingX={'4'} width="full" bottom={'20'}>
         <VStack>
-          <Text>Description</Text>
+          <Text color="primary.900">Description</Text>
           <Text fontSize="12" textAlign="justify" color="#B9B9CE">
             {description}
           </Text>

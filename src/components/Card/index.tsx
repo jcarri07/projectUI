@@ -15,9 +15,10 @@ interface CardTypes {
   title: string;
   description: string;
   price: number;
+  srcImage: string;
 }
 
-export default function Card({title, description, price}: CardTypes) {
+export default function Card({title, description, price, srcImage}: CardTypes) {
   return (
     <Box
       style={styles.shadow}
@@ -27,16 +28,13 @@ export default function Card({title, description, price}: CardTypes) {
       margin={'2'}
       height="5/6"
       padding="3">
-      <Box
-        background="amber.300"
-        height="3/5"
-        borderRadius="3xl"
-        alignItems="flex-end">
+      <Box height="3/5" borderRadius="3xl" alignItems="flex-end">
         <Image
-          height={'100%'}
+          resizeMode="contain"
+          height="full"
           width={'100%'}
           borderRadius={'2xl'}
-          src="https://i.pinimg.com/564x/91/af/7c/91af7c97b4efbe2f1959f42dc551a339.jpg"
+          src={srcImage}
           alt="Card Image"
         />
         <Box

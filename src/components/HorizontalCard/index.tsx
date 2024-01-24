@@ -6,7 +6,7 @@ import {HorizontalCardTypes} from './types';
 export default function HorizontalCard(
   {navigation}: any,
   {
-    image = 'https://i.pinimg.com/564x/3a/00/2d/3a002db8afce64e58c9cdf7393f4a724.jpg',
+    image = 'https://i.pinimg.com/564x/cc/a8/3a/cca83a3fffd7c42b90ff722a3a22687c.jpg',
     productName = 'Vintange Chair',
     description = 'Description',
     price = 200.0,
